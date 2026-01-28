@@ -16,14 +16,21 @@
         <tr>
             <td>{{ teacher.lastname }} {{ teacher.firstname }}</td>
             <td>{{ teacher.section ? teacher.section.name : '-' }}</td>
-            <td>
-                <a href="{{ route('teacher.show', { id: teacher.id }) }}">Détails</a>
+            <td style="display: flex; gap: 10px; align-items: center;">
+                <a href="{{ route('teacher.edit', { id: teacher.id }) }}" title="Modifier">
+                    <img src="/img/edit.png" alt="Modifier" style="height: 20px;">
+                </a>
 
-                {{-- Le formulaire de suppression --}}
-                <form action="{{ route('teacher.destroy', { id: teacher.id }) }}?_method=DELETE" method="POST">
+                <a href="{{ route('teacher.show', { id: teacher.id }) }}" title="Détails">
+                    <img src="/img/detail.png" alt="Détails" style="height: 20px;">
+                </a>
+
+                <form action="{{ route('teacher.destroy', { id: teacher.id }) }}?_method=DELETE" method="POST"
+                    style="margin: 0;">
                     {{ csrfField() }}
-                    <button type="submit">
-                        Supprimer
+                    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;"
+                        title="Supprimer">
+                        <img src="/img/delete.png" alt="Supprimer" style="height: 20px;">
                     </button>
                 </form>
             </td>
