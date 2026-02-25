@@ -14,3 +14,6 @@ router.get('/', [AuthController, 'home'])
 
 router.get('/signup', [AuthController, 'showSignup'])
 router.post('/signup', [AuthController, 'signup'])
+
+router.get('/login', [AuthController, 'showLogin'])
+router.post('/login', [AuthController, 'login'])

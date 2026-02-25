@@ -17,4 +17,21 @@ export default class AuthController {
     await User.create(data)
     return response.redirect('/')
   }
+
+  async showLogin({ view }: HttpContext) {
+    return view.render('pages/auth/login')
+  }
+
+  async login({ request, auth, response }: HttpContext) {
+    const { username, password } = request.all()
+
+    try {
+      const user = await User.verifyCredentials(username, password)
+
+      await auth.use('web').login(user)
+      return response.redirect('/')
+    } catch {
+      return response.redirect().back()
+    }
+  }
 }

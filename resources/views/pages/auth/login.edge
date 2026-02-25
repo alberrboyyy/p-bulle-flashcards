@@ -1,0 +1,16 @@
+<form action="/login" method="POST">
+  {{ csrfField() }}
+  <div>
+    <label>Utilisateur</label>
+    <input type="text" name="username" />
+  </div>
+
+  <div>
+    <label>Mot de passe</label>
+    <input type="password" name="password" />
+  </div>
+
+  <button type="submit">Ok</button>
+</form>
+
+<a href="/signup">S'inscrire</a>
