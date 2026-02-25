@@ -13,5 +13,4 @@ const AuthController = () => import('#controllers/auth_controller')
 router.get('/', [AuthController, 'home'])
 
 router.get('/signup', [AuthController, 'showSignup'])
-
 router.post('/signup', [AuthController, 'signup'])

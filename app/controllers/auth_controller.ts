@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import User from '#models/user'
+import { signupValidator } from '#validators/auth'
 
 export default class AuthController {
   async home({ view }: HttpContext) {
@@ -11,7 +12,7 @@ export default class AuthController {
   }
 
   async signup({ request, response }: HttpContext) {
-    const data = request.only(['username', 'password'])
+    const data = await request.validateUsing(signupValidator)
 
     await User.create(data)
     return response.redirect('/')
