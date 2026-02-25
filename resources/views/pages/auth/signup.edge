@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Inscription
+    </title>
+  </head>
+  <body>
+    <h1>
+      Inscription
+    </h1>
+    <form action="/signup" method="POST">
+
+      {{-- Protection obligatoire contre les attaques CSRF --}}
+      {{ csrfField() }}
+      <div>
+        <label>Utilisateur</label>
+        <input type="text" name="username" id="username" value="{{ old('username') || '' }}" />
+
+        {{-- Affichage de l'erreur si le nom est déjà pris --}}
+        @if(flashMessages.has('errors.username'))
+          <span style="color: red;">{{ flashMessages.get('errors.username') }}</span>
+        @endif
+      </div>
+
+      <div>
+        <label>Mot de passe</label>
+        <input type="password" name="password" id="password" />
+      </div>
+
+      <div>
+        <label>Répéter</label>
+        <input type="password" name="password_confirmation" id="password_confirmation" />
+      </div>
+
+      {{-- Le bouton est caché par défaut --}}
+      <button type="submit" id="btn-submit" style="display: none;">Ok</button>
+    </form>
+
+    <script>
+      const user = document.getElementById("username");
+
+      const pass = document.getElementById("password");
+
+      const conf = document.getElementById("password_confirmation");
+
+      const btn = document.getElementById("btn-submit");
+
+      function valider() {
+        // Règles : non vide, mini 8 caractères, et identiques 
+        const estValide = user.value !== "" && pass.value.length >= 8 && pass.value === conf.value;
+        btn.style.display = estValide ? "block" : "none";
+      }
+
+      [ user, pass, conf ].forEach(el => el.addEventListener("input", valider));
+    </script>
+  </body>
+</html>
