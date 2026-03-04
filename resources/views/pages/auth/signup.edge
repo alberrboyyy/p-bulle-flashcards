@@ -1,58 +1,53 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Inscription
-    </title>
-  </head>
-  <body>
-    <h1>
-      Inscription
-    </h1>
-    <form action="/signup" method="POST">
+@layouts.main({ title: 'Inscription' })
+  <div class="auth-page">
+    <div class="auth-card">
+      <h1>
+        Inscription
+      </h1>
 
-      {{-- Protection obligatoire contre les attaques CSRF --}}
-      {{ csrfField() }}
-      <div>
-        <label>Utilisateur</label>
-        <input type="text" name="username" id="username" value="{{ old('username') || '' }}" />
+      <form action="/signup" method="POST" class="auth-form">
+        {{ csrfField() }}
+        <div class="form-group">
+          <label for="username">Utilisateur</label>
+          <input type="text" name="username" id="username" value="{{ old('username') || '' }}" />
+          @if(flashMessages.has('errors.username'))
+            <div class="field-error">
+              {{ flashMessages.get('errors.username') }}
+            </div>
+          @endif
+        </div>
 
-        {{-- Affichage de l'erreur si le nom est déjà pris --}}
-        @if(flashMessages.has('errors.username'))
-          <span style="color: red;">{{ flashMessages.get('errors.username') }}</span>
-        @endif
-      </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" name="password" id="password" />
+        </div>
 
-      <div>
-        <label>Mot de passe</label>
-        <input type="password" name="password" id="password" />
-      </div>
+        <div class="form-group">
+          <label for="password_confirmation">Répéter le mot de passe</label>
+          <input type="password" name="password_confirmation" id="password_confirmation" />
+        </div>
 
-      <div>
-        <label>Répéter</label>
-        <input type="password" name="password_confirmation" id="password_confirmation" />
-      </div>
+        <button type="submit" id="btn-submit" class="btn-submit" disabled>Créer mon compte</button>
+      </form>
 
-      {{-- Le bouton est caché par défaut --}}
-      <button type="submit" id="btn-submit" style="display: none;">Ok</button>
-    </form>
+      <a href="/login" class="auth-link">Déjà un compte ? Se connecter</a>
+    </div>
+  </div>
 
-    <script>
-      const user = document.getElementById("username");
+  <script>
+    const user = document.getElementById("username");
 
-      const pass = document.getElementById("password");
+    const pass = document.getElementById("password");
 
-      const conf = document.getElementById("password_confirmation");
+    const conf = document.getElementById("password_confirmation");
 
-      const btn = document.getElementById("btn-submit");
+    const btn = document.getElementById("btn-submit");
 
-      function valider() {
-        // Règles : non vide, mini 8 caractères, et identiques 
-        const estValide = user.value !== "" && pass.value.length >= 8 && pass.value === conf.value;
-        btn.style.display = estValide ? "block" : "none";
-      }
+    function valider() {
+      const estValide = user.value !== "" && pass.value.length >= 8 && pass.value === conf.value;
+      btn.disabled = !estValide;
+    }
 
-      [ user, pass, conf ].forEach(el => el.addEventListener("input", valider));
-    </script>
-  </body>
-</html>
+    [ user, pass, conf ].forEach(el => el.addEventListener("input", valider));
+  </script>
+@end

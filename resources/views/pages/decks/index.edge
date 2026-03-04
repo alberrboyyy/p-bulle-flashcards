@@ -1,44 +1,38 @@
 @layouts.main({ title: 'Mes Decks' })
-  <h1>
-    Mes decks
-  </h1>
+  <div class="decks-page">
+    <h1>Mes decks</h1>
 
-  @if(session.has('success'))
-    <div class="flash-success">
-      {{ session.get('success') }}
-    </div>
-  @endif
-  
-  <table>
-    <thead>
-      <tr>
-        <th>
-          Titre
-        </th>
-        <th>
-          Description
-        </th>
-        <th>
-          Cartes
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      @each(deck in decks)
-        <tr onclick="window.location='{{ route('decks.show', { id: deck.id }) }}'" style="cursor:pointer">
-          <td>
-            {{ deck.title }}
-          </td>
-          <td>
-            {{ deck.description }}
-          </td>
-          <td>
-            {{ deck.cards ? deck.cards.length : 0 }}
-          </td>
+    @if(flashMessages.has('success'))
+      <div class="flash-success">
+        {{ flashMessages.get('success') }}
+      </div>
+    @endif
+
+    <table class="decks-table">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Cartes</th>
         </tr>
-      @endeach
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @each(deck in decks)
+          <tr onclick="window.location='{{ route('decks.show', { id: deck.id }) }}'" class="deck-row">
+            <td>{{ deck.title }}</td>
+            <td>{{ deck.description }}</td>
+            <td>{{ deck.cards ? deck.cards.length : 0 }}</td>
+          </tr>
+        @else
+          <tr>
+            <td colspan="3" class="empty-message">Vous n'avez pas encore de deck.</td>
+          </tr>
+        @endeach
+      </tbody>
+    </table>
 
-  <a href="{{ route('decks.create') }}">Ajouter</a>
+    <div class="actions">
+      <a href="{{ route('decks.create') }}" class="btn">Ajouter</a>
+    </div>
+  </div>
 @end

@@ -1,9 +1,10 @@
 @layouts.main({ title: 'Mes decks' })
+  <div class="decks-page">
   <h1>
     Mes decks
   </h1>
 
-§  <table>
+  <table class="decks-table">
     <thead>
       <tr>
         <th>
@@ -19,7 +20,7 @@
     </thead>
     <tbody>
       @each(deck in decks)
-        <tr onclick="window.location='{{ route('decks.show', { id: deck.id }) }}'" style="cursor: pointer;">
+        <tr onclick="window.location='{{ route('decks.show', { id: deck.id }) }}'" class="deck-row">
           <td>
             {{ deck.title }}
           </td>
@@ -32,7 +33,7 @@
         </tr>
       @else
         <tr>
-          <td colspan="3">
+          <td colspan="3" class="empty-message">
             Vous n'avez pas encore de deck.
           </td>
         </tr>
@@ -41,6 +42,7 @@
   </table>
 
   <div class="actions">
-    <a href="{{ route('decks.create') }}" class="button">Ajouter</a>
+    <a href="{{ route('decks.create') }}" class="btn">Ajouter</a>
+  </div>
   </div>
 @end

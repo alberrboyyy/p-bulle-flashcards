@@ -2,22 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
       {{ title || "Flashcards" }}
     </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>
-    <nav>
-      <h1>
-        Flashcards
-      </h1>
-      {{-- Le bouton Déco ira ici plus tard --}}
-    </nav>
+    @!header()
 
-    <main>
-      {{-- Cette balise magique indique où insérer le contenu des pages --}}
+    <main class="container">
       {{{ await $slots.main() }}}
     </main>
+
+    @!footer()
   </body>
 </html>

@@ -1,0 +1,30 @@
+/* ===== Header ===== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px;
+  background: #4a76a8;
+  color: #fff;
+  border-bottom: 2px solid #3a6090;
+}
+
+.header-left .logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: #365d8c;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-right .username {
+  font-weight: 500;
+}

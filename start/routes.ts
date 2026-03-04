@@ -22,6 +22,7 @@ router.post('/signup', [AuthController, 'signup'])
 
 router.get('/login', [AuthController, 'showLogin'])
 router.post('/login', [AuthController, 'login'])
+router.post('/logout', [AuthController, 'logout']).use(middleware.auth())
 
 router
   .group(() => {

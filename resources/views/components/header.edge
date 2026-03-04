@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="header-left">
+    <a href="/" class="logo">Flashcards</a>
+  </div>
+  <div class="header-right">
+    @if(auth.isAuthenticated)
+      <span class="username">{{ auth.user.username }}</span>
+      <form action="/logout" method="POST">
+        {{ csrfField() }}
+        <button type="submit" class="btn btn-outline btn-sm">Déconnexion</button>
+      </form>
+    @else
+      <a href="/login" class="btn btn-outline btn-sm">Connexion</a>
+    @endif
+  </div>
+</header>

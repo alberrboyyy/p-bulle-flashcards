@@ -1,0 +1,81 @@
+/* ===== Decks page ===== */
+.decks-page h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+/* ===== Decks table ===== */
+.decks-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.decks-table th,
+.decks-table td {
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.decks-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #555;
+  border-bottom: 2px solid #ddd;
+}
+
+.decks-table td:last-child {
+  text-align: center;
+  font-weight: 600;
+  color: #4a76a8;
+}
+
+.decks-table th:last-child {
+  text-align: center;
+}
+
+.decks-table .deck-row {
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.decks-table .deck-row:hover {
+  background: #edf2fa;
+}
+
+.decks-table .deck-row td:first-child {
+  font-weight: 600;
+  color: #333;
+}
+
+.decks-table .deck-row td:nth-child(2) {
+  color: #666;
+  font-size: 0.92rem;
+}
+
+.decks-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.decks-table .empty-message {
+  text-align: center;
+  color: #999;
+  padding: 40px 24px;
+  font-style: italic;
+}
+
+/* ===== Decks actions ===== */
+.decks-page .actions {
+  margin-top: 4px;
+}
