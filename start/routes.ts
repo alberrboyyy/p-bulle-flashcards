@@ -10,13 +10,10 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 
-router.get('/', async ({ auth, view }) => {
-  await auth.check()
-  return view.render('pages/home')
-})
-
 const AuthController = () => import('#controllers/auth_controller')
 const DecksController = () => import('#controllers/decks_controller')
+
+router.get('/', [DecksController, 'index']).use(middleware.auth())
 
 //router.get('/', [AuthController, 'home'])
 
