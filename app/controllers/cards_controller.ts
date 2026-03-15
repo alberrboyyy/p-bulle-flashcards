@@ -14,7 +14,9 @@ export default class CardsController {
   async store({ params, request, response, session }: HttpContext) {
     const deck = await Deck.findOrFail(params.deckId)
 
-    const payload = await request.validateUsing(createCardValidator)
+    const payload = await request.validateUsing(createCardValidator, {
+      meta: { deckId: deck.id },
+    })
 
     await deck.related('cards').create(payload)
 
