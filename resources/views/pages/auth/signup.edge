@@ -44,7 +44,7 @@
     const btn = document.getElementById("btn-submit");
 
     function valider() {
-      const estValide = user.value !== "" && pass.value.length >= 8 && pass.value === conf.value;
+      const estValide = user.value !== "" && pass.value.length >= 1 && pass.value === conf.value;
       btn.disabled = !estValide;
     }
 

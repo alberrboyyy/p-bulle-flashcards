@@ -47,7 +47,9 @@
 
 .decks-table .deck-row {
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition:
+    background 0.15s,
+    transform 0.1s;
 }
 
 .decks-table .deck-row:hover {
@@ -78,4 +80,68 @@
 /* ===== Decks actions ===== */
 .decks-page .actions {
   margin-top: 4px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.deck-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Tableau des cartes */
+.cards-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.cards-table th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #ddd;
+  font-weight: bold;
+}
+
+.cards-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.clickable-row:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #666;
+  padding: 40px !important;
+}
+
+.footer-actions {
+  margin-top: 30px;
 }
