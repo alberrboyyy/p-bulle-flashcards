@@ -1,0 +1,38 @@
+.flashcard {
+  width: 320px;
+  height: 220px;
+  margin: 40px auto;
+  border: 2px solid #333;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.flashcard-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.flashcard-link:hover .flashcard {
+  transform: scale(1.02);
+  background-color: #fcfcfc;
+}
+.answer-card {
+  border-color: #555;
+  background-color: #f9f9f9;
+}
+.eval-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.score-display {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 30px 0;
+}

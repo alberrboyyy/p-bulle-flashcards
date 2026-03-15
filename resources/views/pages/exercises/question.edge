@@ -1,0 +1,15 @@
+@layouts.main()
+  <div class="container text-center">
+    <h2>
+      Question
+    </h2>
+    <a href="{{ route('exercises.answer') }}" class="flashcard-link">
+      <div class="flashcard">
+        {{ card.question }}
+      </div>
+    </a>
+    <p class="hint">
+      Cliquez sur la carte pour voir la réponse
+    </p>
+  </div>
+@end

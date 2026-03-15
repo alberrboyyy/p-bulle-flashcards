@@ -41,6 +41,7 @@
               {{ card.answer }}
             </td>
             <td>
+              <a href="{{ route('exercises.start', { id: deck.id }) }}" class="btn">Exercer</a>
               <a href="{{ route('cards.edit', { id: card.id }) }}" class="btn">Modifier</a>
 
               <form action="{{ route('cards.destroy', { id: card.id }) }}" method="POST" style="display:inline;">

@@ -1,0 +1,17 @@
+@layouts.main()
+  <div class="container text-center">
+    <h2>
+      Réponse
+    </h2>
+    <div class="flashcard answer-card">
+      {{ card.answer }}
+    </div>
+    <div class="eval-buttons">
+      <form action="{{ route('exercises.evaluate') }}" method="POST">
+        {{ csrfField() }}
+        <button name="result" value="juste" class="btn btn-success">Juste</button>
+        <button name="result" value="faux" class="btn btn-danger">Faux</button>
+      </form>
+    </div>
+  </div>
+@end

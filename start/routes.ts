@@ -13,6 +13,7 @@ import { middleware } from '#start/kernel'
 const AuthController = () => import('#controllers/auth_controller')
 const DecksController = () => import('#controllers/decks_controller')
 const CardsController = () => import('#controllers/cards_controller')
+const ExercisesController = () => import('#controllers/exercises_controller')
 
 router.get('/', [DecksController, 'index']).use(middleware.auth())
 
@@ -41,5 +42,13 @@ router
     router.get('/cards/:id/edit', [CardsController, 'edit']).as('cards.edit')
     router.post('/cards/:id/update', [CardsController, 'update']).as('cards.update')
     router.post('/cards/:id/delete', [CardsController, 'destroy']).as('cards.destroy')
+
+    router.get('/decks/:id/exercise', [ExercisesController, 'start']).as('exercises.start')
+    router.post('/decks/:id/exercise/setup', [ExercisesController, 'setup']).as('exercises.setup')
+
+    router.get('/exercise/question', [ExercisesController, 'question']).as('exercises.question')
+    router.get('/exercise/answer', [ExercisesController, 'answer']).as('exercises.answer')
+    router.post('/exercise/evaluate', [ExercisesController, 'evaluate']).as('exercises.evaluate')
+    router.get('/exercise/finish', [ExercisesController, 'finish']).as('exercises.finish')
   })
   .use(middleware.auth())

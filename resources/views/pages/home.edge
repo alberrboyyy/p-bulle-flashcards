@@ -1,48 +1,48 @@
 @layouts.main({ title: 'Mes decks' })
   <div class="decks-page">
-  <h1>
-    Mes decks
-  </h1>
+    <h1>
+      Mes decks
+    </h1>
 
-  <table class="decks-table">
-    <thead>
-      <tr>
-        <th>
-          Titre
-        </th>
-        <th>
-          Description
-        </th>
-        <th>
-          Cartes
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      @each(deck in decks)
-        <tr onclick="window.location='{{ route('decks.show', { id: deck.id }) }}'" class="deck-row">
-          <td>
-            {{ deck.title }}
-          </td>
-          <td>
-            {{ deck.description }}
-          </td>
-          <td>
-            {{ deck.cards ? deck.cards.length : 0 }}
-          </td>
-        </tr>
-      @else
+    <table class="decks-table">
+      <thead>
         <tr>
-          <td colspan="3" class="empty-message">
-            Vous n'avez pas encore de deck.
-          </td>
+          <th>
+            Titre
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Cartes
+          </th>
         </tr>
-      @endeach
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @each(deck in decks)
+          <tr onclick="window.location='{{ route('decks.show', { id: deck.id }) }}'" class="deck-row">
+            <td>
+              {{ deck.title }}
+            </td>
+            <td>
+              {{ deck.description }}
+            </td>
+            <td>
+              {{ deck.cards ? deck.cards.length : 0 }}
+            </td>
+          </tr>
+        @else
+          <tr>
+            <td colspan="3" class="empty-message">
+              Vous n'avez pas encore de deck.
+            </td>
+          </tr>
+        @endeach
+      </tbody>
+    </table>
 
-  <div class="actions">
-    <a href="{{ route('decks.create') }}" class="btn">Ajouter</a>
-  </div>
+    <div class="actions">
+      <a href="{{ route('decks.create') }}" class="btn">Ajouter</a>
+    </div>
   </div>
 @end

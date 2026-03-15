@@ -1,0 +1,11 @@
+@layouts.main()
+  <div class="container text-center">
+    <h1>
+      Vous avez exercé le deck
+    </h1>
+    <p class="score-display">
+      Votre résultat: {{ result.score }}/{{ result.total }}
+    </p>
+    <a href="{{ route('decks.index') }}" class="btn">OK</a>
+  </div>
+@end
