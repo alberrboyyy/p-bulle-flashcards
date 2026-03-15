@@ -44,7 +44,7 @@ export default class ExercisesController {
   }
 
   // Affiche la réponse
-  async answer({ session, view, response }: HttpContext) {
+  async answer({ session, view }: HttpContext) {
     const state = session.get('exercise')
     const deck = await Deck.query()
       .where('id', state.deckId)
@@ -73,12 +73,20 @@ export default class ExercisesController {
   }
 
   // Affiche le résultat final
-  async finish({ session, view }: HttpContext) {
+  async finish({ session, view, response }: HttpContext) {
     const state = session.get('exercise')
+
+    if (!state) {
+      return response.redirect().toRoute('decks.index')
+    }
+
     const total = state.cardIds.length
     const score = state.score
 
-    session.forget('exercise') // Nettoyage de la session
-    return view.render('pages/exercises/finish', { score, total })
+    const result = { score, total }
+
+    session.forget('exercise')
+
+    return view.render('pages/exercises/finish', { result })
   }
 }
