@@ -33,18 +33,20 @@
       </thead>
       <tbody>
         @each(card in deck.cards)
-          <tr class="clickable-row">
+          <tr>
             <td>
               {{ card.question }}
             </td>
             <td>
               {{ card.answer }}
             </td>
-          </tr>
-        @else
-          <tr>
-            <td colspan="2" class="empty-msg">
-              Ce deck ne contient pas encore de cartes.
+            <td>
+              <a href="{{ route('cards.edit', { id: card.id }) }}" class="btn">Modifier</a>
+
+              <form action="{{ route('cards.destroy', { id: card.id }) }}" method="POST" style="display:inline;">
+                {{ csrfField() }}
+        <button type="submit" class="btn" onclick="return confirm('Supprimer cette carte ?')">Supprimer</button>
+              </form>
             </td>
           </tr>
         @end

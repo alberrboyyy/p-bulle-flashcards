@@ -1,0 +1,47 @@
+@layouts.main()
+  <div class="container">
+    <h1>
+      Modification de la carte
+    </h1>
+
+    <form action="{{ route('cards.update', { id: card.id }) }}" method="POST">
+      {{ csrfField() }}
+      <div class="form-group">
+        <label for="question">Question</label>
+        <input
+          type="text"
+          name="question"
+          id="question"
+          class="form-control"
+          value="{{ old('question') || card.question }}"
+        />
+        @inputError('question')
+          <p class="text-danger">
+            {{ $messages.join(', ') }}
+          </p>
+        @end
+      </div>
+
+      <div class="form-group">
+        <label for="answer">Réponse</label>
+        <input
+          type="text"
+          name="answer"
+          id="answer"
+          class="form-control"
+          value="{{ old('answer') || card.answer }}"
+        />
+        @inputError('answer')
+          <p class="text-danger">
+            {{ $messages.join(', ') }}
+          </p>
+        @end
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Enregistrer</button>
+        <a href="{{ route('decks.show', { id: card.deckId }) }}" class="btn">Abandonner</a>
+      </div>
+    </form>
+  </div>
+@end

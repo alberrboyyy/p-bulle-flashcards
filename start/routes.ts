@@ -37,5 +37,9 @@ router
 
     router.get('/decks/:deckId/cards/create', [CardsController, 'create']).as('cards.create')
     router.post('/decks/:deckId/cards', [CardsController, 'store']).as('cards.store')
+
+    router.get('/cards/:id/edit', [CardsController, 'edit']).as('cards.edit')
+    router.post('/cards/:id/update', [CardsController, 'update']).as('cards.update')
+    router.post('/cards/:id/delete', [CardsController, 'destroy']).as('cards.destroy')
   })
   .use(middleware.auth())
