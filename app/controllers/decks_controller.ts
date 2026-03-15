@@ -22,12 +22,40 @@ export default class DecksController {
     return view.render('pages/decks/create')
   }
 
+  // Stocke un nouveau deck
   async store({ request, response, auth, session }: HttpContext) {
     const payload = await request.validateUsing(createDeckValidator)
 
     await auth.user!.related('decks').create(payload)
 
     session.flash('success', 'Le deck a été créé avec succès !')
+    return response.redirect().toRoute('decks.index')
+  }
+
+  // Affiche le formulaire d'édition
+  async edit({ params, view }: HttpContext) {
+    const deck = await Deck.findOrFail(params.id)
+    return view.render('pages/decks/edit', { deck })
+  }
+
+  // Met à jour le deck
+  async update({ params, request, response, session }: HttpContext) {
+    const deck = await Deck.findOrFail(params.id)
+    const payload = await request.validateUsing(createDeckValidator)
+
+    deck.merge(payload)
+    await deck.save()
+
+    session.flash('success', 'Le deck a été modifié avec succès !')
+    return response.redirect().toRoute('decks.index')
+  }
+
+  // Supprime le deck
+  async destroy({ params, response, session }: HttpContext) {
+    const deck = await Deck.findOrFail(params.id)
+    await deck.delete()
+
+    session.flash('success', 'Le deck a été supprimé avec succès !')
     return response.redirect().toRoute('decks.index')
   }
 }
