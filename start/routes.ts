@@ -12,6 +12,7 @@ import { middleware } from '#start/kernel'
 
 const AuthController = () => import('#controllers/auth_controller')
 const DecksController = () => import('#controllers/decks_controller')
+const CardsController = () => import('#controllers/cards_controller')
 
 router.get('/', [DecksController, 'index']).use(middleware.auth())
 
@@ -33,5 +34,8 @@ router
     router.get('/decks/:id/edit', [DecksController, 'edit']).as('decks.edit')
     router.post('/decks/:id/update', [DecksController, 'update']).as('decks.update')
     router.post('/decks/:id/delete', [DecksController, 'destroy']).as('decks.destroy')
+
+    router.get('/decks/:deckId/cards/create', [CardsController, 'create']).as('cards.create')
+    router.post('/decks/:deckId/cards', [CardsController, 'store']).as('cards.store')
   })
   .use(middleware.auth())

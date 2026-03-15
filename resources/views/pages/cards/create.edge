@@ -1,0 +1,40 @@
+@layouts.main()
+  <div class="container">
+    <h1>
+      Nouvelle carte pour le deck "{{ deck.title }}"
+    </h1>
+
+    <form action="{{ route('cards.store', { deckId: deck.id }) }}" method="POST">
+      {{ csrfField() }}
+      <div class="form-group">
+        <label for="question">Question</label>
+        <input
+          type="text"
+          name="question"
+          id="question"
+          class="form-control"
+          value="{{ old('question') || '' }}"
+        />
+        @inputError('question')
+          <p class="text-danger">
+            {{ $messages.join(', ') }}
+          </p>
+        @end
+      </div>
+
+      <div class="form-group">
+        <label for="answer">Réponse</label>
+        <input type="text" name="answer" id="answer" class="form-control" value="{{ old('answer') || '' }}" />
+        @inputError('answer')
+          <p class="text-danger">
+            {{ $messages.join(', ') }}
+          </p>
+        @end
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn">Ajouter</button>
+        <a href="{{ route('decks.show', { id: deck.id }) }}" class="btn">Abandonner</a>
+      </div>
+    </form>
+  </div>
+@end

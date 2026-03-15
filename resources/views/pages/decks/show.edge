@@ -52,7 +52,7 @@
     </table>
 
     <div class="footer-actions">
-      <a href="#" class="btn">Ajouter une carte</a>
+      <a href="{{ route('cards.create', { deckId: deck.id }) }}" class="btn">Ajouter une carte</a>
     </div>
   </div>
 @end
