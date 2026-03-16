@@ -2,7 +2,6 @@ import app from '@adonisjs/core/services/app'
 import { defineConfig } from '@adonisjs/lucid'
 
 const dbConfig = defineConfig({
-  /*
   connection: 'mysql',
   connections: {
     mysql: {
@@ -20,7 +19,7 @@ const dbConfig = defineConfig({
       },
     },
   },
-  */
+  /*
   connection: 'sqlite',
   connections: {
     sqlite: {
@@ -34,7 +33,7 @@ const dbConfig = defineConfig({
         paths: ['database/migrations'],
       },
     },
-  },
+  },*/
 })
 
 export default dbConfig
