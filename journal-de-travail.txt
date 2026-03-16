@@ -1,0 +1,30 @@
+Date	    Temps	Status	Titre du commit
+14.01.26	-	    -	    Initial commit
+14.01.26	30	    DONE	feat(views): Ajout des partials et du layout
+14.01.26	40	    WOP	    feat(db): ajout de la database
+28.01.26	-	    -	    feat: ajout de tout ce que jai fait car jai oublié de commit (Steps 3-7)
+28.01.26	1h	    WOP	    feat(step 8): finalisation
+28.01.26	30m	    DONE	feat(step 8): finalisation
+25.02.26	-	    -	    init adonisjs pour le projet final
+25.02.26	120m   	DONE	feat(users): création du système de création de compte
+25.02.26	30m	    DONE	feat(users): ajout du validateur coté serveur
+25.02.26	20m	    DONE	feat(users): ajout du support pour le login avec un cookie de session adonisjs
+25.02.26	30m	    DONE	feat(login): ajout d'une page de debug et de confirmation pour la connection
+26.02.26	-	    -	    modification du code pour support mysql et livraison au prof
+04.03.26	90	    DONE	feat(db): ajout des migrations pour deck et card ainsi que leurs models
+04.03.26	75m	    DONE	feat(db): ajout des contoleurs de deck et des pages pour lire la db
+04.03.26	60m	    DONE	feat(css): ajout du css pour les pages auth et /
+15.03.26	60m	    DONE	feat(deck): ajout de la creation de decks
+15.03.26	60m	    DONE	feat(deck): ajout du crud pour les decks
+15.03.26	30m	    DONE	feat(deck): ajout de la page de detail et son css
+15.03.26	30m	    DONE	feat(deck): ajout des fonctionnalités suppression et modification
+15.03.26	30m	    DONE	feat(card): ajout de la fonctionnalité creation de cartes
+15.03.26	45m	    DONE	feat(card): ajout du crud des cartes et ux
+15.03.26	120m    WIP	    feat(jeu): ajout du mode de jeu basique
+16.03.26	20m	    DONE	fix(jeu): skip la page de fin
+16.03.26	25m	    DONE	feat(validateur-cards): deux cartes ne oeuvent pluus avoir le meme nom
+16.03.26	15m	    DONE	feat(vue): ajout de edge et css pour les messages flash
+16.03.26	20m	    DONE	fix(db): mise a jour en support pour mysql pour la livraison
+16.03.26	10m	    DONE	fix(auth): ajout de messages d'erreur
+16.03.26	20m	    DONE	feat(css): ajout de css là ou il y en avait pas
+16.03.26	15m	    DONE	feat(readme): ajout du readme
