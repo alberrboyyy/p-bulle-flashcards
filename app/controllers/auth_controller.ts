@@ -1,6 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import User from '#models/user'
-import { signupValidator } from '#validators/auth'
+import { loginValidator, signupValidator } from '#validators/auth'
 
 export default class AuthController {
   async home({ view }: HttpContext) {
@@ -14,23 +14,27 @@ export default class AuthController {
   async signup({ request, response }: HttpContext) {
     const data = await request.validateUsing(signupValidator)
 
-    await User.create(data)
-    return response.redirect('/')
+    await User.create({
+      username: data.username,
+      password: data.password,
+    })
+
+    return response.redirect().toRoute('decks.index')
   }
 
   async showLogin({ view }: HttpContext) {
     return view.render('pages/auth/login')
   }
 
-  async login({ request, auth, response }: HttpContext) {
-    const { username, password } = request.all()
+  async login({ request, auth, response, session }: HttpContext) {
+    const { username, password } = await request.validateUsing(loginValidator)
 
     try {
       const user = await User.verifyCredentials(username, password)
-
       await auth.use('web').login(user)
       return response.redirect('/')
     } catch {
+      session.flash('errors', { login: 'Identifiants invalides' })
       return response.redirect().back()
     }
   }
