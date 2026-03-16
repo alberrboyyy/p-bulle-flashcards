@@ -1,14 +1,14 @@
 @layouts.main()
-  <div class="container text-center">
+  <div class="container exercise-page">
     <h1>
       Vous avez choisi le deck {{ deck.title }}
     </h1>
-    <p>
+    <p class="exercise-intro">
       Exercer en mode basique
     </p>
     <form action="{{ route('exercises.setup', { id: deck.id }) }}" method="POST">
       {{ csrfField() }}
-      <button type="submit" class="btn">C'est parti</button>
+      <button type="submit" class="btn btn-primary">C'est parti</button>
     </form>
   </div>
 @end

@@ -131,6 +131,12 @@
   border-bottom: 1px solid #eee;
 }
 
+.cards-table th.actions-col,
+.cards-table td.actions-col {
+  text-align: right;
+  white-space: nowrap;
+}
+
 .clickable-row:hover {
   background-color: #f9f9f9;
   cursor: pointer;
@@ -144,4 +150,34 @@
 
 .footer-actions {
   margin-top: 30px;
+}
+
+.deck-form-page {
+  max-width: 720px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  padding: 28px;
+}
+
+.deck-form-page h1 {
+  margin-bottom: 20px;
+}
+
+.deck-form-page .actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
 }

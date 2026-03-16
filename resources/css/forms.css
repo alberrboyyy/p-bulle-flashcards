@@ -1,0 +1,37 @@
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.95rem;
+}
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-control:focus {
+  outline: none;
+  border-color: #4a76a8;
+  box-shadow: 0 0 0 3px rgba(74, 118, 168, 0.15);
+}
+.text-danger {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+
+.btn-success { background: #28a745; color: white; border: none; }
+.btn-success:hover { background: #218838; }
+.btn-danger { background: #dc3545; color: white; border: none; }
+.btn-danger:hover { background: #c82333; }
+.hint { color: #666; font-size: 0.9rem; margin-top: 10px; }
+

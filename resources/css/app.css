@@ -3,6 +3,7 @@
 @import './decks.css';
 @import './auth.css';
 @import './exercise.css';
+@import './forms.css';
 
 * {
   margin: 0;
@@ -113,3 +114,4 @@ form {
   font-weight: 500;
   box-sizing: border-box;
 }
+.text-center { text-align: center; }

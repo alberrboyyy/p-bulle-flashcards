@@ -5,6 +5,7 @@
         Deck: {{ deck.title }}
       </h1>
       <div class="actions">
+        <a href="{{ route('exercises.start', { id: deck.id }) }}" class="btn btn-primary">Exercer</a>
         <a href="{{ route('decks.edit', { id: deck.id }) }}" class="btn">Modifier</a>
 
         <form action="{{ route('decks.destroy', { id: deck.id }) }}" method="POST" style="display:inline;">
@@ -29,6 +30,9 @@
           <th>
             Réponse
           </th>
+          <th class="actions-col">
+            Actions
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -40,8 +44,7 @@
             <td>
               {{ card.answer }}
             </td>
-            <td>
-              <a href="{{ route('exercises.start', { id: deck.id }) }}" class="btn">Exercer</a>
+            <td class="actions-col">
               <a href="{{ route('cards.edit', { id: card.id }) }}" class="btn">Modifier</a>
 
               <form action="{{ route('cards.destroy', { id: card.id }) }}" method="POST" style="display:inline;">
