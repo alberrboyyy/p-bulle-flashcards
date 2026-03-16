@@ -1,8 +1,8 @@
-<h1>
-  404 - Page not found
-</h1>
-<p>
-  This template is rendered by the
-  <a href="http://docs.adonisjs.com/guides/exception-handling#status-pages">status pages feature</a>
-  of the global exception handler.
-</p>
+@layouts.main({ title: '404 - Page non trouvée' })
+  <div class="error-page">
+    <p class="error-code">404</p>
+    <h2>Page non trouvée</h2>
+    <p>La page que vous cherchez n'existe pas ou a été déplacée.</p>
+    <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+  </div>
+@end

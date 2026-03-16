@@ -58,6 +58,50 @@ body {
   font-size: 0.8rem;
 }
 
+.btn-primary {
+  background: #4a76a8;
+  color: #fff;
+  border-color: #4a76a8;
+}
+
+.btn-primary:hover {
+  background: #3a6090;
+  border-color: #3a6090;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: #fff;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-success {
+  background: #28a745;
+  color: #fff;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+  border-color: #bd2130;
+}
+
 /* ===== Main container ===== */
 .container {
   flex: 1;
@@ -89,5 +133,117 @@ h1 {
 
 /* ===== Forms ===== */
 form {
-  display: inline;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label,
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.form-control,
+input[type='text'],
+input[type='password'],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.form-control:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4a76a8;
+  box-shadow: 0 0 0 2px rgba(74, 118, 168, 0.15);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+/* ===== Deck/card form container ===== */
+.deck-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 32px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.deck-container h1 {
+  margin-bottom: 24px;
+}
+
+/* ===== Utility classes ===== */
+.text-center {
+  text-align: center;
+}
+
+.text-danger,
+.error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  display: block;
+}
+
+.hint {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+/* ===== Error pages ===== */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 700;
+  color: #4a76a8;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.error-page h2 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.error-page p {
+  color: #888;
+  margin-bottom: 24px;
+  font-size: 1rem;
 }
